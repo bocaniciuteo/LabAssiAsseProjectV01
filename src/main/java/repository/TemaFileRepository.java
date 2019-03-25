@@ -30,12 +30,12 @@ public class TemaFileRepository extends AbstractFileRepository<String, Tema> {
     }
 
     protected void writeToFile(Tema tema) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, true))) {
+        /*try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, true))) {
             bw.write(tema.getID() + "#" + tema.getDescriere() + "#" + tema.getDeadline() + "#" + tema.getStartline() + "\n");
         }
         catch(IOException ioe) {
             ioe.printStackTrace();
-        }
+        }*/
     }
 
     protected void writeToFileAll() {

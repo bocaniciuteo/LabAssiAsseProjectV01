@@ -30,12 +30,12 @@ public class StudentFileRepository extends AbstractFileRepository<String, Studen
     }
 
     protected void writeToFile(Student student) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, true))) {
+        /*try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, true))) {
             bw.write(student.getID() + "#" + student.getNume() + "#" + student.getGrupa() + "\n");
         }
         catch(IOException ioe) {
             ioe.printStackTrace();
-        }
+        }*/
     }
 
     protected void writeToFileAll() {
