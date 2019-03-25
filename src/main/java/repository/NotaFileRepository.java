@@ -3,7 +3,7 @@ import domain.*;
 import validation.*;
 
 import java.io.*;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
 public class NotaFileRepository extends AbstractFileRepository<Pair<String, String>, Nota> {
 
@@ -13,7 +13,7 @@ public class NotaFileRepository extends AbstractFileRepository<Pair<String, Stri
     }
 
     protected void loadFromFile() {
-        try (BufferedReader buffer = new BufferedReader(new FileReader(filename))) {
+        /*try (BufferedReader buffer = new BufferedReader(new FileReader(filename))) {
             buffer.lines().collect(Collectors.toList()).forEach(line -> {
                 String[] result = line.split("#");
                 Nota nota = new Nota(new Pair(result[0], result[1]), Double.parseDouble(result[2]),
@@ -26,7 +26,7 @@ public class NotaFileRepository extends AbstractFileRepository<Pair<String, Stri
             });
         } catch (IOException ioe) {
             ioe.printStackTrace();
-        }
+        }*/
     }
 
     protected void writeToFile(Nota nota) {
@@ -39,7 +39,7 @@ public class NotaFileRepository extends AbstractFileRepository<Pair<String, Stri
     }
 
     protected void writeToFileAll() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, false))) {
+       /* try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, false))) {
             super.entities.values().forEach(nota -> {
                 try {
                     bw.write(nota.getID().getObject1() + "#" + nota.getID().getObject2() + "#" + nota.getNota()
@@ -50,7 +50,7 @@ public class NotaFileRepository extends AbstractFileRepository<Pair<String, Stri
             });
         } catch (IOException ioe) {
             ioe.printStackTrace();
-        }
+        }*/
     }
 
 //    protected void createFile(Nota notaObj) {

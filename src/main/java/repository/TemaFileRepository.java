@@ -1,37 +1,37 @@
 package repository;
 
-import domain.Student;
+import domain.Tema;
 import validation.*;
 
 import java.io.*;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
-public class StudentFileRepository extends AbstractFileRepository<String, Student> {
+public class TemaFileRepository extends AbstractFileRepository<String, Tema> {
 
-    public StudentFileRepository(Validator<Student> validator, String filename) {
+    public TemaFileRepository(Validator<Tema> validator, String filename) {
         super(validator, filename);
         loadFromFile();
     }
 
     protected void loadFromFile() {
-        try (BufferedReader buffer = new BufferedReader(new FileReader(filename))) {
+       /* try (BufferedReader buffer = new BufferedReader(new FileReader(filename))) {
             buffer.lines().collect(Collectors.toList()).forEach(line -> {
                 String[] result = line.split("#");
-                Student student = new Student(result[0], result[1], Integer.parseInt(result[2]));
+                Tema tema = new Tema(result[0], result[1], Integer.parseInt(result[2]), Integer.parseInt(result[3]));
                 try {
-                    super.save(student);
+                    super.save(tema);
                 } catch (ValidationException ve) {
                     ve.printStackTrace();
                 }
             });
         } catch (IOException ioe) {
             ioe.printStackTrace();
-        }
+        }*/
     }
 
-    protected void writeToFile(Student student) {
+    protected void writeToFile(Tema tema) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, true))) {
-            bw.write(student.getID() + "#" + student.getNume() + "#" + student.getGrupa() + "\n");
+            bw.write(tema.getID() + "#" + tema.getDescriere() + "#" + tema.getDeadline() + "#" + tema.getStartline() + "\n");
         }
         catch(IOException ioe) {
             ioe.printStackTrace();
@@ -39,10 +39,10 @@ public class StudentFileRepository extends AbstractFileRepository<String, Studen
     }
 
     protected void writeToFileAll() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, false))) {
-            super.entities.values().forEach(student -> {
+        /*try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, false))) {
+            super.entities.values().forEach(tema -> {
                 try {
-                    bw.write(student.getID() + "#" + student.getNume() + "#" + student.getGrupa() + "\n");
+                    bw.write(tema.getID() + "#" + tema.getDescriere() + "#" + tema.getDeadline() + "#" + tema.getStartline() + "\n");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -50,6 +50,6 @@ public class StudentFileRepository extends AbstractFileRepository<String, Studen
         }
         catch(IOException ioe) {
             ioe.printStackTrace();
-        }
+        }*/
     }
 }

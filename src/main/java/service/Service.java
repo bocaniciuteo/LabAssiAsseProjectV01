@@ -3,8 +3,8 @@ package service;
 import domain.*;
 import repository.*;
 
-import java.time.LocalDate;
-import java.time.temporal.WeekFields;
+//import java.time.LocalDate;
+//import java.time.temporal.WeekFields;
 import java.util.Locale;
 
 public class Service {
@@ -108,9 +108,9 @@ public class Service {
         Tema tema = temaXmlRepo.findOne(id);
 
         if (tema != null) {
-            LocalDate date = LocalDate.now();
-            WeekFields weekFields = WeekFields.of(Locale.getDefault());
-            int currentWeek = date.get(weekFields.weekOfWeekBasedYear());
+            //LocalDate date = LocalDate.now();
+            //WeekFields weekFields = WeekFields.of(Locale.getDefault());
+            int currentWeek = 0;//date.get(weekFields.weekOfWeekBasedYear());
 
             if (currentWeek >= 39) {
                 currentWeek = currentWeek - 39;
