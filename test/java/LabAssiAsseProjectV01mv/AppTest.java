@@ -44,21 +44,53 @@ public class AppTest
     }
 
     @Test
-    public void addTemaSuccessfull()
+    public void addTemaSuccess()
     {
         int success = service.saveTema("1", "Tema",8,6);
 
-        assertEquals(0, success);
+        assertEquals(1, success);
     }
 
     @Test
     public void addTemaFailure()
     {
-        int success = service.saveTema("", "",0,0);
+        int fail = service.saveTema("", "",0,0);
 
-        assertEquals(0, success);
+        assertEquals(0, fail);
     }
 
+    @Test
+    public void addStudentSuccess()
+    {
+        int success1 = service.saveStudent("1", "b",110);
+        int success2 = service.saveStudent("1", "b",938);
+        int success3 = service.saveStudent("1", "b",111);
+        int success4 = service.saveStudent("1", "b",937);
 
+
+        assertEquals(0, success1);
+        assertEquals(0, success2);
+        assertEquals(0, success3);
+        assertEquals(0, success4);
+    }
+
+    @Test
+    public void addStudentFailure()
+    {
+        int fail1 = service.saveStudent("", "b",110);
+        int fail2 = service.saveStudent(null, "b",110);
+        int fail3 = service.saveStudent("1", "",110);
+        int fail4 = service.saveStudent("1", null,110);
+        int fail5 = service.saveStudent("1", "b",109);
+        int fail6 = service.saveStudent("1", "b",939);
+
+
+        assertEquals(1, fail1);
+        assertEquals(1, fail2);
+        assertEquals(1, fail3);
+        assertEquals(1, fail4);
+        assertEquals(1, fail5);
+        assertEquals(1, fail6);
+    }
 }
 
