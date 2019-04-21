@@ -76,6 +76,37 @@ public class AppTest
     }
 
     @Test
+    public void addTema1()
+    {
+        int success = service.saveTema(null ,"",0,0);
+        assertEquals(1, success);
+    }
+    @Test
+    public void addTema2()
+    {
+        int success = service.saveTema(1 ,"",0,0);
+        assertEquals(1, success);
+    }
+    @Test
+    public void addTema3()
+    {
+        int success = service.saveTema(1 ,"descriere",0,0);
+        assertEquals(1, success);
+    }
+    @Test
+    public void addTema4()
+    {
+        int success = service.saveTema(1 ,"descriere",2,0);
+        assertEquals(1, success);
+    }
+    @Test
+    public void addTema5()
+    {
+        int success = service.saveTema(1 ,"descriere",2,2);
+        assertEquals(0, success);
+    }
+
+    @Test
     public void addStudentSuccess()
     {
         int successEC = service.saveStudent("1", "b",123);

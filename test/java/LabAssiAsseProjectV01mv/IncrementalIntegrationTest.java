@@ -46,7 +46,7 @@ public class IncrementalIntegrationTest {
 
         assertArrayEquals(new int[]{ 0,0},new int[]{successStudent, successTema});
     }
-    
+
 
     @Test
     public void addGradeSuccess()
